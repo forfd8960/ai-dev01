@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.venv/
+.env
+.env.*
+
+# Node
+node_modules/
+dist/
+build/
+.npmrc
+
+frontend/node_modules/
+
+# Editor
+*.swp
+*.swo
+.DS_Store
+.vscode/
+.idea/
+
+# Testing
+coverage/
+.pytest_cache/

@@ -1,0 +1,86 @@
+@host = http://localhost:8000
+@ticketId = 1
+@tagId = 1
+
+### Health Check
+GET {{host}}/health
+Accept: application/json
+
+### Create Ticket
+POST {{host}}/api/tickets
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "REST Client 创建 Ticket",
+  "description": "通过 .rest 文件发起",
+  "priority": "medium"
+}
+
+### List Tickets
+GET {{host}}/api/tickets?page=1&limit=20
+Accept: application/json
+
+### Search Tickets
+GET {{host}}/api/tickets/search?q=logging&page=1&limit=20
+Accept: application/json
+
+### Get Ticket Detail
+# 将 ticketId 替换为实际 ID
+GET {{host}}/api/tickets/{{ticketId}}
+Accept: application/json
+
+### Update Ticket
+PUT {{host}}/api/tickets/{{ticketId}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "REST Client 更新 Ticket",
+  "description": "更新描述",
+  "priority": "high"
+}
+
+### Update Ticket Status
+PATCH {{host}}/api/tickets/{{ticketId}}/status
+Content-Type: application/json
+Accept: application/json
+
+{
+  "status": "completed"
+}
+
+### Add Tags To Ticket
+POST {{host}}/api/tickets/{{ticketId}}/tags
+Content-Type: application/json
+Accept: application/json
+
+{
+  "tag_names": ["rest", "client"],
+  "tag_ids": []
+}
+
+### Remove Tag From Ticket
+DELETE {{host}}/api/tickets/{{ticketId}}/tags/{{tagId}}
+Accept: application/json
+
+### Delete Ticket
+DELETE {{host}}/api/tickets/{{ticketId}}
+Accept: application/json
+
+### Batch Delete Tickets
+DELETE {{host}}/api/tickets/batch
+Content-Type: application/json
+Accept: application/json
+
+{
+  "ids": [1, 2, 3]
+}
+
+### List Tickets By Tag & Status
+GET {{host}}/api/tickets?tags=rest,client&status=pending
+Accept: application/json
+
+### List Tags
+GET {{host}}/api/tags?sort=usage_desc
+Accept: application/json
