@@ -63,6 +63,7 @@ npm run dev
 ## 测试与质量保障
 - 后端：`pytest`、`ruff check app`、`black --check app`
 - 前端：`npm run lint`、`npm run build`
+- 预提交钩子：安装 `pre-commit` 后执行 `pre-commit install`，自动运行 Black、Ruff 与前端 ESLint
 - REST 验收：`docs/test.rest` 提供 VS Code REST Client 请求示例
 - 种子数据：`docs/seed.sql` 可导入初始标签与 Ticket 样例
 

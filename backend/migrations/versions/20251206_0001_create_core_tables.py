@@ -1,7 +1,7 @@
 """create core ticket tables
 
 Revision ID: 20251206_0001
-Revises: 
+Revises:
 Create Date: 2025-12-06 00:00:00
 """
 from typing import Sequence, Union

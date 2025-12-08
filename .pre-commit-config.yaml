@@ -1,0 +1,39 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        name: Black (backend)
+        files: ^w1/project-alpha/backend/
+        language_version: python3
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.5
+    hooks:
+      - id: ruff
+        name: Ruff Lint (backend)
+        files: ^w1/project-alpha/backend/
+        args: ["--fix"]
+      - id: ruff-format
+        name: Ruff Format (backend)
+        files: ^w1/project-alpha/backend/
+
+  - repo: local
+    hooks:
+      - id: frontend-eslint
+        name: ESLint (frontend)
+        entry: bash
+        args:
+          - -c
+          - cd w1/project-alpha/frontend && npm run lint
+        language: system
+        pass_filenames: false
+        files: ^w1/project-alpha/frontend/src/.*\.(ts|tsx)$

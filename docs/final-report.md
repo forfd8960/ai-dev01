@@ -18,6 +18,7 @@
 - `ruff check app` & `black --check app` – enforce Python style and linting.
 - `npm run lint` – ESLint coverage for TypeScript/React codebase.
 - `npm run build` – validates production build pipeline for frontend assets.
+- `pre-commit run --all-files` – 聚合执行 Black、Ruff 与前端 ESLint 检查。
 
 ## 4. Manual Acceptance Summary
 | 用例 | 描述 | 结果 |
